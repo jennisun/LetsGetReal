@@ -55,13 +55,13 @@ public class RationalNumber extends RealNumber {
     return (this.getNumerator() == other.getNumerator() && this.getDenominator() == other.getDenominator());
   }
 
-  // /**
-  // *@return the value expressed as "3/4" or "8/3"
-  // */
-  // public String toString(){
-  //   return "0";
-  // }
-  //
+  /**
+  *@return the value expressed as "3/4" or "8/3"
+  */
+  public String toString(){
+    return this.getNumerator() + "/" + this.getDenominator();
+  }
+
   // /**Calculate the GCD of two integers.
   // *@param a the first integers
   // *@param b the second integer
