@@ -62,17 +62,19 @@ public class RationalNumber extends RealNumber {
     return this.getNumerator() + "/" + this.getDenominator();
   }
 
-  // /**Calculate the GCD of two integers.
-  // *@param a the first integers
-  // *@param b the second integer
-  // *@return the value of the GCD
-  // */
-  // private static int gcd(int a, int b){
-  //   /*use euclids method or a better one*/
-  //   http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-  //   return 0;
-  // }
-  //
+  /**Calculate the GCD of two integers.
+  *@param a the first integers
+  *@param b the second integer
+  *@return the value of the GCD
+  */
+  private static int gcd(int a, int b){
+    while (a != b) {
+      a = Math.max(a, b) - Math.min(a, b);
+      b = Math.min(a, b);
+    }
+    return a;
+  }
+
   // /**
   // *Divide the numerator and denominator by the GCD
   // *This must be used to maintain that all RationalNumbers are
