@@ -42,13 +42,13 @@ public class RationalNumber extends RealNumber {
     return denominator;
   }
   /**
-  // *@return a new RationalNumber that has the same numerator
-  // *and denominator as this RationalNumber but reversed.
-  // */
-  // public RationalNumber reciprocal(){
-  //   return null;
-  // }
-  // /**
+  *@return a new RationalNumber that has the same numerator
+  *and denominator as this RationalNumber but reversed.
+  */
+  public RationalNumber reciprocal(){
+    return new RationalNumber(denominator, numerator);
+  }
+  /**
   // *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   // */
   // public boolean equals(RationalNumber other){
