@@ -10,21 +10,23 @@ public class RationalNumber extends RealNumber {
     super(0.0);//this value is ignored!
 
     if (deno == 0) {
-      numerator = nume;
+      numerator = 0;
       denominator = 1;
     }
 
-    if (deno < -1) {
-      numerator = nume * -1;
-      denominator = deno * -1;
-    }
-
     else {
-      numerator = nume;
-      denominator = deno;
-    }
+      if (deno < -1) {
+        numerator = nume * -1;
+        denominator = deno * -1;
+      }
 
-    reduce();
+      else {
+        numerator = nume;
+        denominator = deno;
+      }
+
+      if (nume != 0) reduce();
+    }
   }
 
   public double getValue(){
@@ -70,6 +72,8 @@ public class RationalNumber extends RealNumber {
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
+    a = Math.abs(a);
+    b = Math.abs(b);
     while (a != b) {
       if (a >= b) a = a - b;
       else b = b - a;
