@@ -50,11 +50,11 @@ public class RationalNumber extends RealNumber {
   }
   /**
   // *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
-  // */
-  // public boolean equals(RationalNumber other){
-  //   return false;
-  // }
-  //
+  */
+  public boolean equals(RationalNumber other){
+    return (this.getNumerator() == other.getNumerator() && this.getDenominator() == other.getDenominator());
+  }
+
   // /**
   // *@return the value expressed as "3/4" or "8/3"
   // */
