@@ -1,4 +1,4 @@
-public class RationalNumber extends RealNumber {
+public class RationalNumber extends Number {
   private int numerator, denominator;
 
   /**Initialize the RationalNumber with the provided values
@@ -7,7 +7,7 @@ public class RationalNumber extends RealNumber {
   *@param deno the denominator
   */
   public RationalNumber(int nume, int deno){
-    super(0.0);//this value is ignored!
+    super();//this value is ignored!
 
     if (deno == 0) {
       numerator = 0;
@@ -15,7 +15,7 @@ public class RationalNumber extends RealNumber {
     }
 
     else {
-      if (deno < -1) {
+      if (deno <= -1) {
         numerator = nume * -1;
         denominator = deno * -1;
       }
@@ -25,7 +25,7 @@ public class RationalNumber extends RealNumber {
         denominator = deno;
       }
 
-      if (nume != 0) reduce();
+      reduce();
     }
   }
 
@@ -64,6 +64,7 @@ public class RationalNumber extends RealNumber {
   */
   public String toString(){
     if (getDenominator() == 1) return Integer.toString(this.getNumerator());
+    if (getNumerator() == 0) return Integer.toString(0);
     return this.getNumerator() + "/" + this.getDenominator();
   }
 
@@ -88,9 +89,21 @@ public class RationalNumber extends RealNumber {
   *reduced after construction.
   */
   private void reduce(){
-    int gcd = gcd(this.getNumerator(), this.getDenominator());
-    numerator = this.getNumerator()/gcd;
-    denominator = this.getDenominator()/gcd;
+    if (numerator == 0 || denominator == 0) {
+      numerator = 0;
+      denominator = 1;
+    }
+
+    else {
+      if (denominator < 0) {
+        numerator *= -1;
+        denominator *= -1;
+      }
+
+      int gcd = gcd(Math.abs(this.getNumerator()), this.getDenominator());
+      numerator = this.getNumerator()/gcd;
+      denominator = this.getDenominator()/gcd;
+    }
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
